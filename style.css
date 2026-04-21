@@ -1,60 +1,93 @@
+:root {
+    --primary: #00d2ff;
+    --hazard: #ff4d4d;
+    --gold: #ffd700;
+    --dark: #0f172a;
+    --card-bg: #1e293b;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark);
+    color: white;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    overflow: hidden;
 }
 
-.game-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.hidden { display: none !important; }
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
     text-align: center;
     width: 320px;
+    border: 1px solid #334155;
 }
 
-#score-board {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 20px 0;
-    color: #333;
-}
-
-#click-me {
-    padding: 15px 30px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: white;
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
     border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-
-#click-me:active {
-    transform: scale(0.95);
-}
-
-.hidden {
-    display: none;
-}
-
-#reward-section {
-    margin-top: 20px;
-    padding: 20px;
-    background: #e7f3ff;
-    border: 2px dashed #007bff;
-    border-radius: 10px;
-}
-
-#coupon-code {
-    font-family: monospace;
-    font-size: 22px;
     font-weight: bold;
-    color: #d9534f;
-    margin-bottom: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.btn:hover { filter: brightness(1.2); transform: translateY(-2px); }
+.secondary { background: #475569; color: white; }
+.gamble-btn { background: #f59e0b; color: black; }
+.share-btn { background: #22c55e; color: white; }
+.collect-btn { position: fixed; bottom: 30px; width: 200px; background: var(--primary); }
+
+#hud {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    font-size: 1.2rem;
+    z-index: 100;
+}
+
+.target {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    animation: bounce 0.4s ease-out;
+}
+
+.gold { background: var(--gold); box-shadow: 0 0 20px var(--gold); }
+.hazard { background: var(--hazard); box-shadow: 0 0 20px var(--hazard); }
+
+@keyframes bounce {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.discount-badge { font-size: 4rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
+.code-box { 
+    background: #000; 
+    padding: 15px; 
+    border: 2px dashed var(--primary); 
+    font-family: monospace; 
+    font-size: 1.4rem;
+    margin: 15px 0;
 }
