@@ -5,8 +5,15 @@ const scoreDisplay = document.getElementById('score');
 const rewardSection = document.getElementById('reward-section');
 const couponDisplay = document.getElementById('coupon-code');
 
-// Simple obfuscation so the code isn't plain text in the file
-const secretKey = "R0VULTI1LU9GRg=="; // This translates to "GET-25-OFF"
+// This makes the button jump to a random position
+function moveButton() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    
+    clickBtn.style.position = 'absolute';
+    clickBtn.style.left = x + 'px';
+    clickBtn.style.top = y + 'px';
+}
 
 clickBtn.addEventListener('click', () => {
     score++;
@@ -14,15 +21,13 @@ clickBtn.addEventListener('click', () => {
 
     if (score >= targetScore) {
         unlockReward();
+    } else {
+        moveButton(); // Move it every time it's clicked!
     }
 });
 
 function unlockReward() {
-    // Disable the button and show the reward
-    clickBtn.disabled = true;
-    clickBtn.style.opacity = "0.5";
-    
-    // Reveal the coupon
+    clickBtn.style.display = "none"; // Hide the button
     rewardSection.classList.remove('hidden');
-    couponDisplay.innerText = atob(secretKey); 
+    couponDisplay.innerText = "VAULT-WIN-20"; 
 }
