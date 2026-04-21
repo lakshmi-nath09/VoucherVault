@@ -26,9 +26,30 @@ body {
     border-radius: 24px;
     box-shadow: 0 10px 50px rgba(0,0,0,0.5);
     text-align: center;
-    width: 320px;
+    width: 340px;
     border: 1px solid #334155;
+    z-index: 10;
 }
+
+.game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.game-card {
+    background: #2d3748;
+    border: 2px solid #4a5568;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.game-card:hover { border-color: var(--primary); transform: scale(1.05); }
 
 .btn {
     width: 100%;
@@ -38,56 +59,39 @@ body {
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
-    transition: 0.2s;
 }
 
-.btn:hover { filter: brightness(1.2); transform: translateY(-2px); }
-.secondary { background: #475569; color: white; }
 .gamble-btn { background: #f59e0b; color: black; }
 .share-btn { background: #22c55e; color: white; }
-.collect-btn { position: fixed; bottom: 30px; width: 200px; background: var(--primary); }
+.collect-btn { position: fixed; bottom: 30px; width: 220px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; }
 
 #hud {
     position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    font-size: 1.2rem;
-    z-index: 100;
+    top: 0; width: 100%; padding: 20px;
+    display: flex; justify-content: space-around;
+    background: rgba(15, 23, 42, 0.9);
+    font-size: 1.2rem; font-weight: bold; z-index: 100;
 }
 
-.target {
+/* Gameplay Elements */
+.target, .fruit {
     position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
     cursor: pointer;
-    animation: bounce 0.4s ease-out;
+    user-select: none;
 }
 
+.target { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 .gold { background: var(--gold); box-shadow: 0 0 20px var(--gold); }
 .hazard { background: var(--hazard); box-shadow: 0 0 20px var(--hazard); }
 
-@keyframes bounce {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+.fruit { font-size: 3.5rem; transition: transform 0.1s; }
+
+.puzzle-tile {
+    width: 70px; height: 70px; background: #334155;
+    margin: 5px; display: inline-flex; align-items: center;
+    justify-content: center; font-size: 2rem; border-radius: 12px; cursor: pointer;
 }
 
-.discount-badge { font-size: 4rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
-.code-box { 
-    background: #000; 
-    padding: 15px; 
-    border: 2px dashed var(--primary); 
-    font-family: monospace; 
-    font-size: 1.4rem;
-    margin: 15px 0;
-}
+.discount-badge { font-size: 4.5rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
+.code-box { background: #000; padding: 15px; border: 2px dashed var(--primary); font-family: monospace; font-size: 1.4rem; margin: 15px 0; }
+hr { border: 0; border-top: 1px solid #334155; margin: 20px 0; }
