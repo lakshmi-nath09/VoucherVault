@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reward Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Reward Quest</h1>
+        <p>Score 20 points to unlock your coupon!</p>
+        
+        <div id="score-board">Score: <span id="score">0</span></div>
+        
+        <button id="click-me">CLICK ME!</button>
+
+        <div id="reward-section" class="hidden">
+            <h2>🎉 Reward Unlocked!</h2>
+            <p>Use this code at checkout:</p>
+            <div id="coupon-code"></div>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
