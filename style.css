@@ -1,7 +1,7 @@
 :root {
     --primary: #00d2ff;
+    --bts-purple: #bb86fc;
     --hazard: #ff4d4d;
-    --gold: #ffd700;
     --dark: #0f172a;
     --card-bg: #1e293b;
 }
@@ -24,19 +24,15 @@ body {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 24px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+    border: 1px solid #334155;
     text-align: center;
     width: 340px;
-    border: 1px solid #334155;
-    z-index: 10;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
 }
 
-.game-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
-}
+.slogan { font-style: italic; color: var(--primary); margin-bottom: 20px; }
+
+.game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
 .game-card {
     background: #2d3748;
@@ -45,53 +41,35 @@ body {
     padding: 20px;
     border-radius: 15px;
     cursor: pointer;
-    transition: 0.2s;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.game-card:hover { border-color: var(--primary); transform: scale(1.05); }
+.game-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.bts-special { border-color: var(--bts-purple) !important; color: var(--bts-purple); }
 
-.btn {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
+/* Game Elements */
+.bts-tile {
+    width: 80px; height: 110px;
+    margin: 5px; border-radius: 8px;
+    border: 2px solid var(--bts-purple);
+    background-size: cover; background-position: center;
+    cursor: pointer; display: inline-block;
+    background-color: #553c9a;
+    transition: 0.4s;
 }
 
-.gamble-btn { background: #f59e0b; color: black; }
-.share-btn { background: #22c55e; color: white; }
-.collect-btn { position: fixed; bottom: 30px; width: 220px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; }
-
-#hud {
-    position: fixed;
-    top: 0; width: 100%; padding: 20px;
-    display: flex; justify-content: space-around;
-    background: rgba(15, 23, 42, 0.9);
-    font-size: 1.2rem; font-weight: bold; z-index: 100;
-}
-
-/* Gameplay Elements */
-.target, .fruit {
-    position: absolute;
-    cursor: pointer;
-    user-select: none;
-}
-
+.fruit, .target { position: absolute; cursor: pointer; user-select: none; }
+.fruit { font-size: 3.5rem; }
 .target { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-.gold { background: var(--gold); box-shadow: 0 0 20px var(--gold); }
-.hazard { background: var(--hazard); box-shadow: 0 0 20px var(--hazard); }
+.gold { background: #ffd700; box-shadow: 0 0 15px #ffd700; }
+.hazard { background: var(--hazard); box-shadow: 0 0 15px var(--hazard); }
 
-.fruit { font-size: 3.5rem; transition: transform 0.1s; }
-
-.puzzle-tile {
-    width: 70px; height: 70px; background: #334155;
-    margin: 5px; display: inline-flex; align-items: center;
-    justify-content: center; font-size: 2rem; border-radius: 12px; cursor: pointer;
-}
-
-.discount-badge { font-size: 4.5rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
-.code-box { background: #000; padding: 15px; border: 2px dashed var(--primary); font-family: monospace; font-size: 1.4rem; margin: 15px 0; }
-hr { border: 0; border-top: 1px solid #334155; margin: 20px 0; }
+/* Reward Styles */
+.discount-badge { font-size: 4.5rem; font-weight: 800; color: var(--primary); }
+.btn { width: 100%; padding: 14px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }
+.gamble-btn { background: #f59e0b; }
+.share-btn { background: #22c55e; color: white; }
+.code-box { background: #000; padding: 15px; border: 2px dashed var(--primary); font-family: monospace; font-size: 1.3rem; margin: 15px 0; }
+#hud { position: fixed; top: 0; width: 100%; padding: 20px; display: flex; justify-content: space-around; background: rgba(0,0,0,0.8); z-index: 100; }
+.collect-btn { position: fixed; bottom: 30px; width: 220px; background: var(--primary); color: white; left: 50%; transform: translateX(-50%); }
