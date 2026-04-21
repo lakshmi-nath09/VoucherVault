@@ -3,23 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reward Quest</title>
+    <title>VoucherVault | Play, Share, Redeem</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>Reward Quest</h1>
-        <p>Score 20 points to unlock your coupon!</p>
-        
-        <div id="score-board">Score: <span id="score">0</span></div>
-        
-        <button id="click-me">CLICK ME!</button>
+    <div class="container">
+        <div id="hud" class="hidden">
+            <span>🪙 Coins: <span id="coin-count">0</span></span>
+            <span id="difficulty-tag">LEVEL: STABLE</span>
+        </div>
 
-        <div id="reward-section" class="hidden">
-            <h2>🎉 Reward Unlocked!</h2>
-            <p>Use this code at checkout:</p>
-            <div id="coupon-code"></div>
-            <button onclick="location.reload()">Play Again</button>
+        <div id="menu" class="card">
+            <h1>🗝️ VoucherVault</h1>
+            <p>1 Coin = 1% Discount.<br>The more you play, the harder it gets.</p>
+            <div class="game-options">
+                <button class="btn" onclick="startGame('Catch')">Play Catch the Coin</button>
+                <button class="btn secondary" onclick="alert('Coming soon in next update!')">Solitaire / Mahjong</button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <div id="game-area"></div>
+            <button class="btn collect-btn" onclick="showRewardScreen()">REDEEM NOW</button>
+        </div>
+
+        <div id="reward-screen" class="hidden">
+            <div class="card">
+                <h2>🎉 Vault Results</h2>
+                <div class="discount-badge" id="final-discount">0%</div>
+                
+                <div class="mechanics">
+                    <button class="btn gamble-btn" id="gamble-btn" onclick="triggerGreedMechanic()">
+                        💰 Double or Nothing? (Risk)
+                    </button>
+                    <button class="btn share-btn" onclick="shareToBoost()">
+                        📢 Share to Friends (+5% Bonus)
+                    </button>
+                </div>
+
+                <hr>
+                <p>Your Final Coupon:</p>
+                <div id="coupon-code" class="code-box"></div>
+                <button class="btn secondary" onclick="location.reload()">TRY AGAIN</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
