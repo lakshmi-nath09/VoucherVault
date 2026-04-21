@@ -3,50 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoucherVault | Play the Game, Rule the Price!</title>
+    <title>VoucherVault | Play the Game, Rule the Price.</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="hud" class="hidden">
         <span>🪙 Coins: <span id="coin-count">0</span></span>
-        <span id="difficulty-tag">MODE: STABLE</span>
+        <span id="difficulty-tag">LEVEL: STABLE</span>
     </div>
 
     <div class="container">
         <div id="menu" class="card">
             <h1>🗝️ VoucherVault</h1>
-            <p>1 Coin = 1% Discount. One mistake = Game Over.</p>
+            <p class="slogan">Play the Game, Rule the Price.</p>
             <div class="game-grid">
+                <button class="game-card bts-special" onclick="startGame('BTS')">💜<br>BTS Mahjong</button>
                 <button class="game-card" onclick="startGame('Fruit')">🍎<br>Fruit Slasher</button>
-                <button class="game-card" onclick="startGame('Tiles')">🧩<br>Tile Match</button>
                 <button class="game-card" onclick="startGame('Catch')">🪙<br>Coin Catch</button>
-                <button class="game-card" onclick="alert('Solitaire & Mahjong coming in v2.0!')">🃏<br>Classic Cards</button>
+                <button class="game-card" onclick="alert('Puzzle coming soon!')">🧩<br>Puzzle</button>
             </div>
         </div>
 
         <div id="game-screen" class="hidden">
             <div id="game-area"></div>
-            <button class="btn collect-btn" onclick="showRewardScreen()">CASH OUT NOW</button>
+            <button class="btn collect-btn" onclick="showRewardScreen()">REDEEM NOW</button>
         </div>
 
         <div id="reward-screen" class="hidden">
             <div class="card">
                 <h2>🎉 Vault Results</h2>
                 <div class="discount-badge" id="final-discount">0%</div>
-                
                 <div class="mechanics">
-                    <button class="btn gamble-btn" id="gamble-btn" onclick="triggerGreedMechanic()">
-                        💰 Double or Nothing? (Risk)
-                    </button>
-                    <button class="btn share-btn" onclick="shareToBoost()">
-                        📢 Share to Friends (+5% Bonus)
-                    </button>
+                    <button class="btn gamble-btn" id="gamble-btn" onclick="triggerGreedMechanic()">💰 Double or Nothing?</button>
+                    <button class="btn share-btn" onclick="shareToBoost()">📢 Share for +5%</button>
                 </div>
-
                 <hr>
                 <p>Your Final Coupon:</p>
                 <div id="coupon-code" class="code-box"></div>
-                <button class="btn secondary" onclick="location.reload()">BACK TO MENU</button>
+                <button class="btn secondary" onclick="location.reload()">MAIN MENU</button>
             </div>
         </div>
     </div>
