@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoucherVault | Play, Share, Redeem</title>
+    <title>VoucherVault | The Ultimate Reward Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div id="hud" class="hidden">
-            <span>🪙 Coins: <span id="coin-count">0</span></span>
-            <span id="difficulty-tag">LEVEL: STABLE</span>
-        </div>
+    <div id="hud" class="hidden">
+        <span>🪙 Coins: <span id="coin-count">0</span></span>
+        <span id="difficulty-tag">MODE: STABLE</span>
+    </div>
 
+    <div class="container">
         <div id="menu" class="card">
             <h1>🗝️ VoucherVault</h1>
-            <p>1 Coin = 1% Discount.<br>The more you play, the harder it gets.</p>
-            <div class="game-options">
-                <button class="btn" onclick="startGame('Catch')">Play Catch the Coin</button>
-                <button class="btn secondary" onclick="alert('Coming soon in next update!')">Solitaire / Mahjong</button>
+            <p>1 Coin = 1% Discount. One mistake = Game Over.</p>
+            <div class="game-grid">
+                <button class="game-card" onclick="startGame('Fruit')">🍎<br>Fruit Slasher</button>
+                <button class="game-card" onclick="startGame('Tiles')">🧩<br>Tile Match</button>
+                <button class="game-card" onclick="startGame('Catch')">🪙<br>Coin Catch</button>
+                <button class="game-card" onclick="alert('Solitaire & Mahjong coming in v2.0!')">🃏<br>Classic Cards</button>
             </div>
         </div>
 
         <div id="game-screen" class="hidden">
             <div id="game-area"></div>
-            <button class="btn collect-btn" onclick="showRewardScreen()">REDEEM NOW</button>
+            <button class="btn collect-btn" onclick="showRewardScreen()">CASH OUT NOW</button>
         </div>
 
         <div id="reward-screen" class="hidden">
@@ -44,7 +46,7 @@
                 <hr>
                 <p>Your Final Coupon:</p>
                 <div id="coupon-code" class="code-box"></div>
-                <button class="btn secondary" onclick="location.reload()">TRY AGAIN</button>
+                <button class="btn secondary" onclick="location.reload()">BACK TO MENU</button>
             </div>
         </div>
     </div>
