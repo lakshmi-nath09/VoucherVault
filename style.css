@@ -1,0 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 320px;
+}
+
+#score-board {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+}
+
+#click-me {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#click-me:active {
+    transform: scale(0.95);
+}
+
+.hidden {
+    display: none;
+}
+
+#reward-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #e7f3ff;
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+}
+
+#coupon-code {
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+    margin-bottom: 15px;
+}
